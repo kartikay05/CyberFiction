@@ -1,0 +1,248 @@
+/* ========== Base Reset ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", "gilroy", sans-serif;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  background: #f9f9f9;
+  color: #111;
+  scroll-behavior: smooth;
+}
+
+#main {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ========== Canvas ========== */
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw !important;
+  height: 100vh !important;
+  display: block;
+  object-fit: cover;
+  z-index: 99;
+}
+
+.pin-spacer > canvas {
+  z-index: 99 !important;
+  position: fixed !important;
+  bottom: 0;
+  left: 0;
+  width: 100% !important;
+  height: 95% !important;
+  object-fit: cover;
+}
+
+.pin-spacer {
+  z-index: auto !important;
+  position: relative !important;
+  overflow: visible !important;
+  background: transparent !important;
+}
+
+/* ========== Navigation ========== */
+#nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px 30px;
+  z-index: 2;
+}
+
+#nav h3 {
+  font-weight: 400;
+  color: #111;
+  font-size: clamp(18px, 3vw, 24px);
+  letter-spacing: 1px;
+}
+
+#nav a {
+  padding: 10px 15px;
+  border-radius: 50px;
+  background: #111;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#nav a:hover {
+  background: #ff5c5c;
+  color: #111;
+}
+
+#nav i {
+  font-size: 1.4rem;
+}
+
+/* ========== Sections ========== */
+section, #page, #page1, #page2, #page3, #page4, #page5, #page6 {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background-color: (255, 255, 255, 0);
+  display: flex;
+  justify-content: space-between;
+  text-align: start;
+  padding: 0 2%;
+  z-index: 1;
+}
+
+/* Headings */
+section h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+section h3 {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: #666;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+section p {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  line-height: 1.6;
+  color: #555;
+  margin-top: 1rem;
+  max-width: 90%;
+}
+
+/* ========== Loop Banner (Intro Page) ========== */
+#loop {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  white-space: nowrap;
+  font-size: clamp(2rem, 8vw, 5rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  overflow: hidden;
+  color: #111;
+}
+
+#loop > h1 {
+  animation: anim 25s linear infinite;
+  padding-right: 2rem;
+}
+
+#loop > h1 span {
+  -webkit-text-stroke: 1.2px #111;
+  color: transparent;
+}
+
+@keyframes anim {
+  0%   { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+#page h3 {
+  position: absolute;
+  text-align: start;
+  width: 40%;
+  bottom: 10%;
+  left: 5%;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: #333;
+}
+
+#page #scroll {
+  font-weight: 600;
+  color: #ff5c5c;
+  margin-left: 0.5rem;
+}
+
+
+/* ========== Page Assignments ========== */
+#page1 #left-text { max-width: 40%; }
+#page1 #right-text { max-width: 40%;  }
+
+#page2 #text1 { max-width: 40%; }
+#page2 #text2 { max-width: 40%; margin-left: auto; text-align: right; }
+
+#page3 #text3 { max-width: 40%; margin-left: auto; text-align: right; }
+
+#page4 #text4 { max-width: 40%;  }
+
+#page5 #text5 { max-width: 40%; margin-left: auto; text-align: right; }
+
+#page6 #text6 { max-width: 40%; }
+
+/* ========== Responsive ========== */
+
+/* Tablets */
+@media (max-width: 992px) {
+  #page1 #left-text,
+  #page1 #right-text,
+  #page2 #text1,
+  #page2 #text2,
+  #page3 #text3,
+  #page4 #text4,
+  #page5 #text5,
+  #page6 #text6 {
+    max-width: 80%;
+    text-align: center !important;
+    margin: 0 auto !important;
+  }
+
+  section {
+    justify-content: center;
+    padding: 3rem 2rem;
+  }
+
+  canvas {
+    width: 400px;
+    opacity: 0.25;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 600px) {
+  #nav {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 10px 15px;
+  }
+
+  #loop {
+    top: 25%;
+    font-size: clamp(1rem, 6vw, 2rem);
+  }
+
+  section {
+    padding: 3rem 1rem;
+  }
+
+  section h1 {
+    font-size: clamp(1.5rem, 6vw, 2.2rem);
+  }
+
+  section p {
+    font-size: clamp(0.85rem, 4vw, 1rem);
+  }
+
+  canvas {
+    width: 100vh;
+    opacity: 1;
+  }
+}

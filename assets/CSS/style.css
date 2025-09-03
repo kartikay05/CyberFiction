@@ -1,0 +1,288 @@
+/* ========== Base Reset ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "gilroy", "Poppins", sans-serif;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+#main {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ========== Canvas ========== */
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw !important;
+  height: 100vh !important;
+  display: block;
+  object-fit: cover;
+  z-index: 99;
+}
+
+.pin-spacer > canvas {
+  z-index: 99 !important;
+  position: fixed !important;
+  bottom: 0;
+  left: 0;
+  width: 100% !important;
+  height: 95% !important;
+  object-fit: cover;
+}
+
+.pin-spacer {
+  z-index: auto !important;
+  position: relative !important;
+  overflow: visible !important;
+  background: transparent !important;
+}
+
+/* ========== Navigation ========== */
+#nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 15px 30px;
+  color: white;
+  z-index: 100;
+}
+
+#nav h3 {
+  font-weight: 400;
+  color: black;
+  font-size: clamp(18px, 2.5vw, 22px);
+}
+
+#nav a{
+  padding: 8px 16px;
+  border-radius: 50px;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-size: clamp(14px, 2vw, 16px);
+}
+
+#nav i {
+  margin-right: 4px;
+  font-size: larger;
+}
+
+/* ========== Sections ========== */
+section, #page, #page1, #page2, #page3, #page4, #page5, #page6 {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background-color: (255, 255, 255, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  z-index: 1;
+}
+
+/* ========== Loop Animation Banner ========== */
+#loop {
+  display: flex;
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  font-size: clamp(1.5rem, 7vw, 100px);
+  white-space: nowrap;
+  font-family: "Poppins";
+}
+
+#loop > h1 {
+  font-weight: 400;
+  animation: anim 25s linear infinite;
+}
+
+#loop > h1 > span {
+  -webkit-text-stroke: 1.2px #000;
+  color: transparent;
+  font-weight: 500;
+}
+
+@keyframes anim {
+  0%   { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Page-specific text blocks */
+#page > h3 {
+  width: 60vw;
+  position: absolute;
+  top: 65%;
+  left: 5%;
+  text-align: left;
+  font-weight: 400;
+  color: #4a4747;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+#page #scroll {
+  font-weight: 500;
+  color: black;
+}
+
+
+#page1 > #right-text {
+  position: absolute;
+  top: 25%;
+  left: 4%;
+}
+
+#page1 > #right-text h3,
+#page1 > #left-text h3,
+#page2 > #text1 h3,
+#page2 > #text2 p,
+#page3 > #text3 h3 {
+  font-weight: 400;
+  color: #7c7c7c;
+}
+
+#page1 > #right-text h1,
+#page1 > #left-text h1 {
+  font-size: clamp(2rem, 5vw, 50px);
+  line-height: 1.2;
+}
+
+#page1 > #left-text {
+  position: absolute;
+  top: 55%;
+  right: 6%;
+  text-align: end;
+}
+
+#page2 > #text1 {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+}
+
+#page2 > #text1 h1 {
+  font-size: clamp(2.5rem, 6vw, 60px);
+  line-height: 1.5;
+}
+
+#page2 > #text2 {
+  position: absolute;
+  top: 55%;
+  right: 10%;
+  text-align: end;
+}
+
+#page3 > #text3 {
+  position: absolute;
+  top: 40%;
+  right: 10%;
+  text-align: end;
+}
+
+#page3 > #text3 h1 {
+  font-size: clamp(2.5rem, 7vw, 70px);
+}
+
+#page4 h1, #page5 h1, #page6 h1 {
+  font-size: clamp(2.5rem, 6vw, 60px);
+  line-height: 1.2;
+}
+
+#page4 p, #page5 p, #page6 p {
+  margin-top: 1rem;
+  font-size: clamp(1rem, 3vw, 18px);
+  color: #7c7c7c;
+}
+
+/* ========== Typography ========== */
+h1 {
+  line-height: 1.2;
+}
+
+h3 {
+  margin-bottom: 10px;
+}
+
+p {
+  line-height: 1.6;
+}
+
+/* ========== Responsive Breakpoints ========== */
+
+/* Tablets */
+/* @media (max-width: 992px) {
+  #page1, #page2 {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  #page1 h1,
+  #page2 h1,
+  #page3 h1 {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+} */
+
+/* Mobiles */
+/* @media (max-width: 600px) {
+  #nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  #nav a {
+    width: auto;
+  }
+
+  #loop {
+    font-size: clamp(1.2rem, 6vw, 2rem);
+    top: 40%;
+  }
+
+  #page1, #page2 {
+    padding: 1.5rem;
+  }
+
+  p {
+    font-size: clamp(0.85rem, 4vw, 1rem);
+  }
+} */
+
+/* Large Screens */
+/* @media (min-width: 1024px) {
+  section {
+    flex-direction: row;
+    text-align: left;
+    justify-content: space-between;
+    padding: 80px;
+  }
+
+  #page1 #right-text,
+  #page1 #left-text {
+    width: 45%;
+  }
+
+  #page2 #text1,
+  #page2 #text2,
+  #page4 #text4,
+  #page5 #text5,
+  #page6 #text6 {
+    width: 50%;
+  }
+} */
